@@ -1,0 +1,33 @@
+{
+  "id": "crypto-fear-greed",
+  "name": "Crypto Fear & Greed",
+  "icon": "icon.webp",
+  "tagline": "The crypto Fear and Greed Index, today and over time",
+  "description": "Today's Crypto Fear and Greed Index (0 to 100) with its classification, yesterday, last week and last month, and a history chart for 30D, 90D, 1Y and All. Index data from Alternative.me (https://alternative.me/crypto/fear-and-greed-index/). Not affiliated with or endorsed by Alternative.me.",
+  "categories": [
+    "data",
+    "crypto"
+  ],
+  "targets": [
+    "cli",
+    "tui",
+    "desktop",
+    "web"
+  ],
+  "hosts": [
+    "api.alternative.me"
+  ],
+  "contributes": {
+    "panes": [
+      "crypto-fear-greed"
+    ],
+    "shortcuts": [
+      {
+        "code": "CFNG",
+        "name": "Crypto Fear & Greed",
+        "description": "The crypto Fear and Greed Index with its history. Data from Alternative.me."
+      }
+    ]
+  },
+  "minGloom": "0.15.0"
+}
