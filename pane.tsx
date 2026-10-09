@@ -257,7 +257,7 @@ export function CryptoFearGreedPane({ paneId, focused, width, height }: PaneProp
   const openSource = useCallback(() => void host.openExternal(SOURCE_URL), [host]);
   const info = useMemo(() => (summary ? [{
     id: "as-of",
-    parts: [{ text: `as of ${formatDay(summary.latest.time)}`, tone: "muted" as const }],
+    parts: [{ text: `as of ${formatDay(summary.latest.time)} UTC`, tone: "muted" as const }],
   }] : []), [summary]);
   const hints = useMemo(() => [{ id: "source", key: "o", label: "pen source", onPress: openSource }], [openSource]);
   usePaneStatusFooter({ registrationId: paneId, loading, error, stale: data?.stale ?? false, info, hints });

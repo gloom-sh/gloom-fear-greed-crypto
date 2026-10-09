@@ -145,6 +145,17 @@ describe("states", () => {
     expect(credits(frame)).toBe(2);
   });
 
+  test("a history of one day shows the reading, dashes for the comparisons and no chart", async () => {
+    const [today] = latest.data;
+    restoreApi = serveApi(() => Response.json({ ...latest, data: [today] })).restore;
+    const frame = await open(90, 24);
+    expect(frame).toContain("59  Greed");
+    expect(frame).toContain("Yesterday  --");
+    expect(frame).toContain("Last month --");
+    expect(frame).toContain("Not enough readings for a chart.");
+    expect(credits(frame)).toBe(2);
+  });
+
   test("a pane opened before the index is due paints from the cache without a request", async () => {
     await loadCryptoFearGreed(false, { fetch: async () => parseFngPayload(latest) });
     const api = serveApi(() => Response.json(latest));
